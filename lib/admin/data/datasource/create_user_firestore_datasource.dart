@@ -10,7 +10,7 @@ class CreateUserFirestoreDataSource {
       'level': userModel.level // 42
     }).then((value) {
       print("User Added");
-      print(value);
+      // print(value);
     }).catchError((error) {
       print("Failed to add user: $error");
     });
