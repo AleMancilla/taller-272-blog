@@ -1,14 +1,17 @@
+import 'package:blog_taller_base_de_datos/admin/data/models/user_model.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_button_login.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_input_text.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
 import 'package:flutter/material.dart';
 
 class TemplateCreateUser extends StatelessWidget {
-  TemplateCreateUser({Key? key}) : super(key: key);
+  TemplateCreateUser({Key? key, this.onButtonPress}) : super(key: key);
 
-  TextEditingController controllerUser = TextEditingController();
-  TextEditingController controllerPass = TextEditingController();
-  TextEditingController controllerLevel = TextEditingController();
+  final Function? onButtonPress;
+
+  final TextEditingController controllerUser = TextEditingController();
+  final TextEditingController controllerPass = TextEditingController();
+  final TextEditingController controllerLevel = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class TemplateCreateUser extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AtomTextTitle(title: "CREATE USER"),
+          const AtomTextTitle(title: "CREATE USER"),
           AtomInputText(
             controller: controllerUser,
             labelText: 'Usuario',
@@ -35,12 +38,23 @@ class TemplateCreateUser extends StatelessWidget {
             labelText: 'Nivel de permiso',
           ),
           AtomButtonGlobal(
-              textButton: 'Crear Usuario',
-              onTap: () {
-                print('xxxxxxxxxxxxxx');
-              }),
+            textButton: 'Crear Usuario',
+            onTap: registerUser,
+          ),
         ],
       ),
     );
+  }
+
+  registerUser() {
+    onButtonPress!(UserModel(
+      user: controllerUser.text,
+      pass: controllerPass.text,
+      level: controllerLevel.text,
+    ));
+
+    controllerUser.clear();
+    controllerPass.clear();
+    controllerLevel.clear();
   }
 }
