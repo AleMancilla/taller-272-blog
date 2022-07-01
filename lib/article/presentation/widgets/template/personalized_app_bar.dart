@@ -1,5 +1,6 @@
+import 'package:blog_taller_base_de_datos/admin/presentation/pages/login_page.dart';
+import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:blog_taller_base_de_datos/core/utils_colors.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/personalized_search.dart';
 import 'package:flutter/material.dart';
 
 class PersonalizedAppBar extends StatelessWidget {
@@ -17,7 +18,9 @@ class PersonalizedAppBar extends StatelessWidget {
           // PersonalizedSearch(),
           InkWell(
             child: Text('Iniciar Sesion'),
-            onTap: () {},
+            onTap: () {
+              openPage(context, LoginPage());
+            },
           ),
         ],
       ),

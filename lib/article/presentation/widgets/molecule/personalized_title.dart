@@ -1,5 +1,5 @@
-import 'package:blog_taller_base_de_datos/presentation/widgets/atom/atom_subtitle.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/atom/atom_title.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_subtitle.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_title.dart';
 import 'package:flutter/material.dart';
 
 class PersonalizedTitle extends StatelessWidget {

@@ -1,8 +1,8 @@
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_divider.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_body_article.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_image_article.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_title_article.dart';
 import 'package:blog_taller_base_de_datos/core/utils_colors.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/atom/atom_divider.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/article/personalized_body_article.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/article/personalized_image_article.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/article/personalized_title_article.dart';
 import 'package:flutter/material.dart';
 
 class ItemArticle extends StatelessWidget {
@@ -17,7 +17,7 @@ class ItemArticle extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          AtomDivider(),
+          const AtomDivider(),
           SizedBox(height: 15),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,

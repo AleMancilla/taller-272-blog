@@ -1,4 +1,4 @@
-import 'package:blog_taller_base_de_datos/presentation/widgets/atom/atom_input_search.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_input_search.dart';
 import 'package:flutter/material.dart';
 
 class PersonalizedSearch extends StatelessWidget {

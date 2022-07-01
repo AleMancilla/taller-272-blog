@@ -1,6 +1,6 @@
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/article/item_article.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/template/personalized_app_bar.dart';
-import 'package:blog_taller_base_de_datos/presentation/widgets/molecule/personalized_title.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/personalized_title.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/item_article.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/personalized_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
