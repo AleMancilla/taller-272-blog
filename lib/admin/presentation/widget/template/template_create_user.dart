@@ -3,11 +3,12 @@ import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_in
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
 import 'package:flutter/material.dart';
 
-class TemplateLogin extends StatelessWidget {
-  TemplateLogin({Key? key}) : super(key: key);
+class TemplateCreateUser extends StatelessWidget {
+  TemplateCreateUser({Key? key}) : super(key: key);
 
   TextEditingController controllerUser = TextEditingController();
   TextEditingController controllerPass = TextEditingController();
+  TextEditingController controllerLevel = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class TemplateLogin extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AtomTextTitle(title: "LOGIN"),
+          AtomTextTitle(title: "CREATE USER"),
           AtomInputText(
             controller: controllerUser,
             labelText: 'Usuario',
@@ -29,7 +30,15 @@ class TemplateLogin extends StatelessWidget {
             controller: controllerPass,
             labelText: 'Contraseña',
           ),
-          AtomButtonGlobal(textButton: 'Iniciar Sesion'),
+          AtomInputText(
+            controller: controllerLevel,
+            labelText: 'Nivel de permiso',
+          ),
+          AtomButtonGlobal(
+              textButton: 'Crear Usuario',
+              onTap: () {
+                print('xxxxxxxxxxxxxx');
+              }),
         ],
       ),
     );

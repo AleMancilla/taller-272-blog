@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AtomLoginText extends StatelessWidget {
-  const AtomLoginText({Key? key}) : super(key: key);
+class AtomTextTitle extends StatelessWidget {
+  const AtomTextTitle({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Text(
-        'LOGIN',
-        style: TextStyle(
+        title,
+        style: const TextStyle(
           fontSize: 70,
           fontWeight: FontWeight.bold,
         ),

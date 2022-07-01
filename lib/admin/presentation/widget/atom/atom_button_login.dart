@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AtomButtonLogin extends StatelessWidget {
-  const AtomButtonLogin({Key? key}) : super(key: key);
+class AtomButtonGlobal extends StatelessWidget {
+  const AtomButtonGlobal({Key? key, required this.textButton, this.onTap})
+      : super(key: key);
+  final String textButton;
+  final Function? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +21,17 @@ class AtomButtonLogin extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
-                'Iniciar Sesion',
+                textButton,
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              if (onTap != null) {
+                onTap!();
+              }
+            },
           ),
         ),
       ),
