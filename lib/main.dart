@@ -1,3 +1,4 @@
+import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/create_user_page.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/login_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: CreateUserPage(),
+      home: CreateArticlePage(),
     );
   }
 }
