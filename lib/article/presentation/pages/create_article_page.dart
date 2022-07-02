@@ -26,8 +26,9 @@ class CreateArticlePage extends StatelessWidget {
 
   _insertArticle(ArticleModel article, BuildContext context) async {
     loadingAsyncFunction(
-        context,
-        () async =>
-            createArticleFirestoreRepositoryImplement.createArticle(article));
+      context,
+      () async =>
+          createArticleFirestoreRepositoryImplement.createArticle(article),
+    );
   }
 }

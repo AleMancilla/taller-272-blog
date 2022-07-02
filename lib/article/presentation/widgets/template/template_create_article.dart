@@ -46,9 +46,9 @@ class TemplateCreateArticle extends StatelessWidget {
 
   insrtArticle() {
     onButtonPress!(ArticleModel(
-      title: controllerimageUrl.text,
-      description: controllerTitle.text,
-      imageURL: controllerDescription.text,
+      title: controllerTitle.text,
+      description: controllerDescription.text,
+      imageURL: controllerimageUrl.text,
     ));
 
     controllerimageUrl.clear();

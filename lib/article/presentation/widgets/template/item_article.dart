@@ -1,3 +1,4 @@
+import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_divider.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_body_article.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_image_article.dart';
@@ -6,8 +7,8 @@ import 'package:blog_taller_base_de_datos/core/utils_colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemArticle extends StatelessWidget {
-  const ItemArticle({Key? key}) : super(key: key);
-
+  const ItemArticle({Key? key, required this.articleModel}) : super(key: key);
+  final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,14 +24,9 @@ class ItemArticle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PersonalizedTitleArticle(
-                  title: 'titletitle title titletitle title',
-                  seeMore: _onpress),
-              PersonalizedBodyArticle(
-                  description:
-                      'Est eu mollit sint cupidatat aliqua. Est cillum elit sit voluptate sunt elit enim ad. Ad esse do nisi non est irure qui enim dolor nisi esse quis. Duis ex consequat est velit tempor aliquip velit incididunt. Minim elit ad exercitation sint eu laboris in veniam voluptate dolore aliquip voluptate ipsum.'),
-              PersonalizedImageArticle(
-                  urlImage:
-                      'https://www.moradam.com/wp-content/uploads/2021/12/Oracle.jpg'),
+                  title: articleModel.title, seeMore: _onpress),
+              PersonalizedBodyArticle(description: articleModel.description),
+              PersonalizedImageArticle(urlImage: articleModel.imageURL),
             ],
           ),
         ],
