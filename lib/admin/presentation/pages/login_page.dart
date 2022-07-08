@@ -1,6 +1,7 @@
 import 'package:blog_taller_base_de_datos/admin/data/models/user_model.dart';
 import 'package:blog_taller_base_de_datos/admin/data/repositories/read_user_firestore_repository_implement.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/template/template_login.dart';
+import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class LoginPage extends StatelessWidget {
   final ReadUserFirestoreRepositoryImplement
       readUserFirestoreRepositoryImplement =
       ReadUserFirestoreRepositoryImplement();
+  final AppPreferens prefs = AppPreferens();
 
   @override
   Widget build(BuildContext context) {
@@ -32,34 +34,25 @@ class LoginPage extends StatelessWidget {
           user =
               await readUserFirestoreRepositoryImplement.readUser(_user, pass);
         } catch (e) {
-          print('xxxxxx');
-          print(e);
+          showErrorAlert(context, 'No se pudo iniciar sesión', '$e');
         }
         return;
       });
 
       if (user != null) {
-        print('encontro el usuario');
-      } else {
-        print('USUARIO NULO');
+        Navigator.pop(context);
+        showCorrectAlert(context, 'sesión iniciada correctamente',
+            'Bienvenido ${user!.user}');
+        _chargeDateInPreferens(user!);
       }
-
-      print(user);
     } catch (e) {
-      print(e);
+      showErrorAlert(context, 'No se pudo iniciar sesión', '$e');
     }
   }
 
-  // chargeUser() async {
-  //   Future.delayed(Duration.zero, () {
-  //     loadingAsyncFunction(context, () async => asingAllItems());
-  //   });
-  // }
-
-  // asingAllItems() async {
-  //   listArticle =
-  //       await readListArticleFirestoreRepositoryImplements.readListArticles();
-  //   setState(() {});
-  // }
-
+  _chargeDateInPreferens(UserModel user) {
+    prefs.userName = user.user;
+    prefs.userPass = user.pass;
+    prefs.userLevel = user.level;
+  }
 }

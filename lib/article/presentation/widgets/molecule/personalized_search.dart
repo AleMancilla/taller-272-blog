@@ -6,13 +6,11 @@ class PersonalizedSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          AtomInputSearch(),
-          Icon(Icons.search),
-        ],
-      ),
+    return Row(
+      children: const [
+        AtomInputSearch(),
+        Icon(Icons.search),
+      ],
     );
   }
 }

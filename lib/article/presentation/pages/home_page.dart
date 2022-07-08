@@ -1,15 +1,15 @@
-import 'package:blog_taller_base_de_datos/article/data/datasource/read_articles_firestore_datasource.dart';
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:blog_taller_base_de_datos/article/data/respositories/read_list_article_firestore_repository_implements.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/personalized_title.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/item_article.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/personalized_app_bar.dart';
+import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   ReadListArticleFirestoreRepositoryImplements
       readListArticleFirestoreRepositoryImplements =
       ReadListArticleFirestoreRepositoryImplements();
+  final AppPreferens prefs = AppPreferens();
 
   @override
   void initState() {
@@ -51,24 +52,25 @@ class _HomePageState extends State<HomePage> {
           ),
         );
       }),
-      body: Container(
-        child: Column(
-          children: [
-            PersonalizedAppBar(),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                color: Colors.black,
-                padding: EdgeInsets.symmetric(horizontal: 50),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [PersonalizedTitle(), ...getListArticle()],
-                  ),
+      body: Column(
+        children: [
+          PersonalizedAppBar(),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              color: Colors.black,
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const PersonalizedTitle(),
+                    ...getListArticle(),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

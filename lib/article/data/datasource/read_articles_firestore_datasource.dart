@@ -6,14 +6,14 @@ class ReadArticlesFirestoreDatasource {
   Future<List<ArticleModel>> readArticles() async {
     List<ArticleModel> listArticle = [];
     await articles.get().then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
+      for (var doc in querySnapshot.docs) {
         ArticleModel articleModel = ArticleModel(
           title: doc['description'],
           description: doc['imageURL'],
           imageURL: doc['title'],
         );
         listArticle.add(articleModel);
-      });
+      }
     });
 
     return listArticle;

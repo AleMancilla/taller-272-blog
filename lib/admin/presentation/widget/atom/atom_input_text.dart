@@ -13,7 +13,7 @@ class AtomInputText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
@@ -24,19 +24,19 @@ class AtomInputText extends StatelessWidget {
             //     width: 5,
             //   ),
             // ),
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black38,
                 width: 1,
               ),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black45,
                 width: 2,
               ),
             ),
-            labelStyle: TextStyle(color: Colors.black)
+            labelStyle: const TextStyle(color: Colors.black)
             // errorBorder: OutlineInputBorder(
             //   borderSide: BorderSide(
             //     color: Colors.red,

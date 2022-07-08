@@ -11,11 +11,11 @@ class PersonalizedBodyArticle extends StatelessWidget {
     return Expanded(
       flex: 3,
       child: Container(
-        padding: EdgeInsets.only(left: 15, right: 20),
-        constraints: BoxConstraints(maxHeight: 160),
+        padding: const EdgeInsets.only(left: 15, right: 20),
+        constraints: const BoxConstraints(maxHeight: 160),
         child: Text(
           description,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black87,
             fontSize: 15,
             fontWeight: FontWeight.normal,

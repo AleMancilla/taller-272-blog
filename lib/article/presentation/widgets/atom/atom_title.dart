@@ -9,7 +9,7 @@ class AtomTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 80,
         fontWeight: FontWeight.bold,

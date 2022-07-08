@@ -12,14 +12,14 @@ class ItemArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
-      constraints: BoxConstraints(maxHeight: 200),
+      padding: const EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
+      constraints: const BoxConstraints(maxHeight: 200),
       color: primaryColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const AtomDivider(),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

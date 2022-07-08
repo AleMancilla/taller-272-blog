@@ -5,7 +5,7 @@ class AtomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Container(
       // width: (size.width / 100) * 70,
       height: 1.5,

@@ -25,6 +25,12 @@ class AppPreferens {
   set userLevel(String data) => _prefs.setString('pref_userLevel', data);
   String get userLevel => _prefs.getString('pref_userLevel') ?? 'NULL';
 
+  signOffUser() {
+    userName = 'NULL';
+    userPass = 'NULL';
+    userLevel = 'NULL';
+  }
+
   // String get userEmail => _prefs.getString('pref_userEmail');
   // set userEmail(String data) {
   //   _prefs.setString('pref_userEmail', data);

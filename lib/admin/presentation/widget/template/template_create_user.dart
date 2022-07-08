@@ -16,7 +16,7 @@ class TemplateCreateUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
       decoration: BoxDecoration(
         color: Colors.white54,
         borderRadius: BorderRadius.circular(20),

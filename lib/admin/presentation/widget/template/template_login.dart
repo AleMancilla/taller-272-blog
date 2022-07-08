@@ -8,13 +8,13 @@ class TemplateLogin extends StatelessWidget {
 
   final Function onPress;
 
-  TextEditingController controllerUser = TextEditingController();
-  TextEditingController controllerPass = TextEditingController();
+  final TextEditingController controllerUser = TextEditingController();
+  final TextEditingController controllerPass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
       decoration: BoxDecoration(
         color: Colors.white54,
         borderRadius: BorderRadius.circular(20),
@@ -22,7 +22,7 @@ class TemplateLogin extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AtomTextTitle(title: "LOGIN"),
+          const AtomTextTitle(title: "LOGIN"),
           AtomInputText(
             controller: controllerUser,
             labelText: 'Usuario',
