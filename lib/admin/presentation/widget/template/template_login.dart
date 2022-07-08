@@ -4,7 +4,9 @@ import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_lo
 import 'package:flutter/material.dart';
 
 class TemplateLogin extends StatelessWidget {
-  TemplateLogin({Key? key}) : super(key: key);
+  TemplateLogin({Key? key, required this.onPress}) : super(key: key);
+
+  final Function onPress;
 
   TextEditingController controllerUser = TextEditingController();
   TextEditingController controllerPass = TextEditingController();
@@ -29,7 +31,7 @@ class TemplateLogin extends StatelessWidget {
             controller: controllerPass,
             labelText: 'Contraseña',
           ),
-          AtomButtonGlobal(textButton: 'Iniciar Sesion'),
+          AtomButtonGlobal(textButton: 'Iniciar Sesion', onTap: onPress),
         ],
       ),
     );

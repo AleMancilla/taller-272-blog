@@ -24,4 +24,18 @@ class UserModel {
     this.activate,
     this.dateCreate,
   });
+
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        user: json['user'],
+        pass: json['pass'],
+        level: json['level'],
+        idUser: json['idUser'],
+        name: json['name'],
+        photo: json['photo'],
+        work: json['work'],
+        description: json['description'],
+        contact: json['contact'],
+        activate: json['activate'],
+        dateCreate: json['dateCreate'],
+      );
 }
