@@ -31,7 +31,9 @@ class TemplateLogin extends StatelessWidget {
             controller: controllerPass,
             labelText: 'Contraseña',
           ),
-          AtomButtonGlobal(textButton: 'Iniciar Sesion', onTap: onPress),
+          AtomButtonGlobal(
+              textButton: 'Iniciar Sesion',
+              onTap: () => onPress(controllerUser.text, controllerPass.text)),
         ],
       ),
     );

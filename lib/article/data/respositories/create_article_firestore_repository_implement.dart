@@ -12,7 +12,7 @@ class CreateArticleFirestoreRepositoryImplement
     try {
       await createArticleFirestoreDatasource.addArticle(articleModel);
     } catch (e) {
-      throw 'Error al insertar usuario';
+      throw '$e';
     }
   }
 }

@@ -9,7 +9,7 @@ void openPage(BuildContext context, Widget page) {
   );
 }
 
-loadingAsyncFunction(BuildContext context, Function function) async {
+Future loadingAsyncFunction(BuildContext context, Function function) async {
   showProgressIndicator(context);
   await function();
   Navigator.pop(context);

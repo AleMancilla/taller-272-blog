@@ -12,7 +12,7 @@ class ReadListArticleFirestoreRepositoryImplements
     try {
       return readArticlesFirestoreDatasource.readArticles();
     } catch (e) {
-      throw 'Error al insertar usuario';
+      throw '$e';
     }
   }
 }

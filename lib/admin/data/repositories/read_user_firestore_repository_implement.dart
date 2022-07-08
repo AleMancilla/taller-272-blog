@@ -8,13 +8,13 @@ class ReadUserFirestoreRepositoryImplement
       ReadUserFirestoreDatasource();
 
   @override
-  Future<UserModel> readUser(String user, String pass) async {
+  Future<UserModel?> readUser(String user, String pass) async {
     try {
-      UserModel userModel =
+      UserModel? userModel =
           await readUserFirestoreDatasource.readUser(user, pass);
       return userModel;
     } catch (e) {
-      return throw 'Error al insertar usuario';
+      return throw '$e';
     }
   }
 }
