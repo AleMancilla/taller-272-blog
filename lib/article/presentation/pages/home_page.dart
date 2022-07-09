@@ -76,6 +76,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<Widget> getListArticle() {
-    return listArticle.map((e) => ItemArticle(articleModel: e)).toList();
+    return listArticle.map((e) {
+      print(' ---- ${e.title} -- ${e.imageURL}');
+      return ItemArticle(articleModel: e);
+    }).toList();
   }
 }

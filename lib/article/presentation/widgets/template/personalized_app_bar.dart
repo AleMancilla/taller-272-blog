@@ -1,3 +1,4 @@
+import 'package:blog_taller_base_de_datos/admin/presentation/pages/admin_page.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/login_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
@@ -26,18 +27,54 @@ class PersonalizedAppBar extends StatelessWidget {
 
   Widget _getButtonSession(BuildContext context) {
     if (prefs.userName != 'NULL') {
-      return InkWell(
-        child: const Text('Cerrar Sesion'),
-        onTap: () {
-          prefs.signOffUser();
-          // openPage(context, LoginPage());
-        },
+      return Row(
+        children: [
+          _usuarioOptions(context),
+          _cerrarSesion(),
+        ],
       );
     }
+    return _iniciarSesion(context);
+  }
+
+  InkWell _iniciarSesion(BuildContext context) {
     return InkWell(
       child: const Text('Iniciar Sesion'),
       onTap: () {
         openPage(context, LoginPage());
+      },
+    );
+  }
+
+  Widget _usuarioOptions(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        // prefs.signOffUser();
+        openPage(context, AdminPage());
+      },
+      child: Row(
+        children: const [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: const Text('Administrar'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              child: Icon(Icons.person),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  InkWell _cerrarSesion() {
+    return InkWell(
+      child: const Text('Cerrar Sesion'),
+      onTap: () {
+        prefs.signOffUser();
+        // openPage(context, LoginPage());
       },
     );
   }

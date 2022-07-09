@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:status_alert/status_alert.dart';
 
 void openPage(BuildContext context, Widget page) {
-  Navigator.push<void>(
+  Navigator.push(
     context,
-    MaterialPageRoute<void>(
+    MaterialPageRoute(
       builder: (BuildContext context) => page,
     ),
   );

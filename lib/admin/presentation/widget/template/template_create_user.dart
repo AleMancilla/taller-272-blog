@@ -24,7 +24,7 @@ class TemplateCreateUser extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const AtomTextTitle(title: "CREATE USER"),
+          const AtomTextTitle(title: "CREAR USUARIO"),
           AtomInputText(
             controller: controllerUser,
             labelText: 'Usuario',
