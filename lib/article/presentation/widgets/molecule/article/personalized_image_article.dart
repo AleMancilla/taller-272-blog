@@ -9,9 +9,12 @@ class PersonalizedImageArticle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
-      child: Image.network(
-        urlImage,
-        fit: BoxFit.cover,
+      child: Container(
+        constraints: const BoxConstraints(maxHeight: 160),
+        child: Image.network(
+          urlImage,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

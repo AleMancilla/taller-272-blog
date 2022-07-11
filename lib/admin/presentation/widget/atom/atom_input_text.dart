@@ -5,15 +5,18 @@ class AtomInputText extends StatelessWidget {
     Key? key,
     required this.controller,
     required this.labelText,
+    this.width = 300,
   }) : super(key: key);
   final TextEditingController controller;
   final String labelText;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      width: width,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      color: Colors.white,
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
