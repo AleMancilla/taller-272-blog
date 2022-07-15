@@ -1,9 +1,11 @@
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/admin_page.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/login_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:blog_taller_base_de_datos/core/utils_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonalizedAppBar extends StatelessWidget {
@@ -27,22 +29,27 @@ class PersonalizedAppBar extends StatelessWidget {
   }
 
   Widget _getButtonSession(BuildContext context) {
-    if (prefs.userName != 'NULL') {
-      return Row(
-        children: [
-          _usuarioOptions(context),
-          _cerrarSesion(),
-        ],
-      );
-    }
-    return _iniciarSesion(context);
+    return BlocBuilder<UserBloc, UserState>(
+      builder: (_, state) {
+        if (state.existUser) {
+          return Row(
+            children: [
+              _usuarioOptions(context),
+              _cerrarSesion(),
+            ],
+          );
+        } else {
+          return _iniciarSesion(context);
+        }
+      },
+    );
   }
 
   InkWell _iniciarSesion(BuildContext context) {
     return InkWell(
       child: const Text('Iniciar Sesion'),
       onTap: () {
-        openPage(context, LoginPage());
+        openPage(context, const LoginPage());
       },
     );
   }
@@ -51,16 +58,16 @@ class PersonalizedAppBar extends StatelessWidget {
     return InkWell(
       onTap: () {
         // prefs.signOffUser();
-        openPage(context, AdminPage());
+        openPage(context, const AdminPage());
       },
       child: Row(
         children: const [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const Text('Administrar'),
+            padding: EdgeInsets.all(8.0),
+            child: Text('Administrar'),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
               child: Icon(Icons.person),
             ),
@@ -70,13 +77,17 @@ class PersonalizedAppBar extends StatelessWidget {
     );
   }
 
-  InkWell _cerrarSesion() {
-    return InkWell(
-      child: const Text('Cerrar Sesion'),
-      onTap: () {
-        prefs.signOffUser();
-        // openPage(context, LoginPage());
-      },
-    );
+  Widget _cerrarSesion() {
+    return Builder(builder: (context) {
+      final _userBlocProvider =
+          BlocProvider.of<UserBloc>(context, listen: false);
+      return InkWell(
+        child: const Text('Cerrar Sesion'),
+        onTap: () {
+          _userBlocProvider.add(LogOutUser());
+          prefs.signOffUser();
+        },
+      );
+    });
   }
 }

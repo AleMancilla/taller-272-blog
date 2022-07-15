@@ -6,11 +6,9 @@ part 'article_event.dart';
 part 'article_state.dart';
 
 class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
-  ArticleBloc() : super(ArticleInitial()) {
+  ArticleBloc() : super(const ArticleInitial()) {
     // on<ActivateUser>( (event, emit ) => emit( UserSetState( event.user ) ));
     on<ActivateArticleEvent>((event, emit) {
-      print('----=-=-= hola');
-      // ArticleSetState(event.listArticle);
       emit(ArticleSetState(event.listArticle));
     });
   }

@@ -1,58 +1,22 @@
-import 'package:blog_taller_base_de_datos/admin/data/models/user_model.dart';
-import 'package:blog_taller_base_de_datos/admin/data/repositories/read_user_firestore_repository_implement.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_data_utils.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/template/template_login.dart';
-import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
-import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
-
-  final ReadUserFirestoreRepositoryImplement
-      readUserFirestoreRepositoryImplement =
-      ReadUserFirestoreRepositoryImplement();
-  final AppPreferens prefs = AppPreferens();
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: TemplateLogin(
             onPress: (String user, String pass) =>
-                _readUserIfExist(user, pass, context)),
+                readUserIfExist(user, pass, context, _userBlocProvider)),
       ),
     );
-  }
-
-  _readUserIfExist(String _user, String pass, BuildContext context) async {
-    try {
-      UserModel? user;
-
-      await loadingAsyncFunction(context, () async {
-        try {
-          user =
-              await readUserFirestoreRepositoryImplement.readUser(_user, pass);
-        } catch (e) {
-          showErrorAlert(context, 'No se pudo iniciar sesión', '$e');
-        }
-        return;
-      });
-
-      if (user != null) {
-        Navigator.pop(context);
-        showCorrectAlert(context, 'sesión iniciada correctamente',
-            'Bienvenido ${user!.user}');
-        _chargeDateInPreferens(user!);
-      }
-    } catch (e) {
-      showErrorAlert(context, 'No se pudo iniciar sesión', '$e');
-    }
-  }
-
-  _chargeDateInPreferens(UserModel user) {
-    prefs.userName = user.user;
-    prefs.userPass = user.pass;
-    prefs.userLevel = user.level;
   }
 }

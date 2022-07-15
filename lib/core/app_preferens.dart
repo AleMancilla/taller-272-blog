@@ -1,3 +1,4 @@
+import 'package:blog_taller_base_de_datos/admin/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPreferens {
@@ -29,6 +30,14 @@ class AppPreferens {
     userName = 'NULL';
     userPass = 'NULL';
     userLevel = 'NULL';
+  }
+
+  UserModel getUserModelFromPreferens() {
+    return UserModel(
+      user: userName,
+      pass: userPass,
+      level: userLevel,
+    );
   }
 
   // String get userEmail => _prefs.getString('pref_userEmail');

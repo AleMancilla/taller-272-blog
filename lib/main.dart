@@ -1,3 +1,5 @@
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_data_utils.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
@@ -25,6 +27,7 @@ class AppState extends StatelessWidget {
       child: MyApp(),
       providers: [
         BlocProvider<ArticleBloc>(create: (_) => ArticleBloc()),
+        BlocProvider<UserBloc>(create: (_) => UserBloc()),
       ],
     );
   }
@@ -35,9 +38,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
+    chargeDataUser(_userBlocProvider);
     return MaterialApp(
       title: 'Material App',
       home: HomePage(),
     );
   }
+
+  // firstData(){
+  //   chargeDataUser(_userBlocProvider)
+  // }
 }

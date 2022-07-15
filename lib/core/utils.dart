@@ -10,8 +10,10 @@ void openPage(BuildContext context, Widget page) {
   );
 }
 
-Future loadingAsyncFunction(BuildContext context, Function function) async {
-  print('----xxxxxx');
+Future loadingAsyncFunction(
+  BuildContext context,
+  Function function,
+) async {
   showProgressIndicator(context);
   await function();
   Navigator.pop(context);
