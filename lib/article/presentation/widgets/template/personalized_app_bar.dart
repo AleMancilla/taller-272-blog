@@ -4,6 +4,7 @@ import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:blog_taller_base_de_datos/core/utils_colors.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonalizedAppBar extends StatelessWidget {
   PersonalizedAppBar({Key? key}) : super(key: key);

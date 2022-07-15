@@ -1,9 +1,10 @@
-import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +13,21 @@ void main() async {
   );
   final prefs = AppPreferens();
   prefs.initPreferences();
-  runApp(const MyApp());
+  runApp(AppState());
+}
+
+class AppState extends StatelessWidget {
+  const AppState({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      child: MyApp(),
+      providers: [
+        BlocProvider<ArticleBloc>(create: (_) => ArticleBloc()),
+      ],
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {

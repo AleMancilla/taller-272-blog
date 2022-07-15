@@ -11,6 +11,7 @@ void openPage(BuildContext context, Widget page) {
 }
 
 Future loadingAsyncFunction(BuildContext context, Function function) async {
+  print('----xxxxxx');
   showProgressIndicator(context);
   await function();
   Navigator.pop(context);
