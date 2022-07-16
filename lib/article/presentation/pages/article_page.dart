@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/article_page_template.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +11,13 @@ class ArticlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         color: Colors.black,
-        padding: const EdgeInsets.symmetric(horizontal: 50),
+        height: double.infinity,
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: max(50, size.width * 0.15)),
         child: ArticlePageTemplate(article: article),
       ),
     );

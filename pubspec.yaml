@@ -41,6 +41,7 @@ dependencies:
 
   universal_html: ^2.0.8
   webviewx: ^0.2.1
+  url_launcher: ^6.1.5
   # generic_bloc_provider: ^2.1.1
 
   flutter_bloc: ^8.0.1

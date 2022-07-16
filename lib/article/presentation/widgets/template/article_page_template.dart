@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_body_html.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_image.dart';
@@ -12,6 +14,7 @@ class ArticlePageTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //       width: min(size.width, 900),
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
       margin: const EdgeInsets.only(top: 30, bottom: 30),
@@ -28,7 +31,7 @@ class ArticlePageTemplate extends StatelessWidget {
               child: AtomImage(src: article.imageURL),
             ),
             AtomTitle(title: article.title),
-            AtomBodyHTML(description: article.description)
+            AtomBodyHTML(description: article.description),
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:blog_taller_base_de_datos/admin/data/models/user_model.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_button_login.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_input_text.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/widget/molecule/drop_down_list.dart';
 import 'package:flutter/material.dart';
 
 class TemplateCreateUser extends StatelessWidget {
@@ -11,6 +12,7 @@ class TemplateCreateUser extends StatelessWidget {
 
   final TextEditingController controllerUser = TextEditingController();
   final TextEditingController controllerPass = TextEditingController();
+  final TextEditingController controllerName = TextEditingController();
   final TextEditingController controllerLevel = TextEditingController();
 
   @override
@@ -27,16 +29,21 @@ class TemplateCreateUser extends StatelessWidget {
           const AtomTextTitle(title: "CREAR USUARIO"),
           AtomInputText(
             controller: controllerUser,
-            labelText: 'Usuario',
+            labelText: '* Usuario de inicio de sesion ',
           ),
           AtomInputText(
             controller: controllerPass,
-            labelText: 'Contraseña',
+            labelText: '* Contraseña',
           ),
           AtomInputText(
-            controller: controllerLevel,
-            labelText: 'Nivel de permiso',
+            controller: controllerName,
+            labelText: 'Nombre',
           ),
+          // AtomInputText(
+          //   controller: controllerLevel,
+          //   labelText: '* Nivel de permiso',
+          // ),
+          DropDownList(controllerLevel: controllerLevel),
           AtomButtonGlobal(
             textButton: 'Crear Usuario',
             onTap: registerUser,
@@ -51,10 +58,13 @@ class TemplateCreateUser extends StatelessWidget {
       user: controllerUser.text,
       pass: controllerPass.text,
       level: controllerLevel.text,
+      name: controllerName.text,
+      activate: true,
     ));
 
     controllerUser.clear();
     controllerPass.clear();
     controllerLevel.clear();
+    controllerName.clear();
   }
 }

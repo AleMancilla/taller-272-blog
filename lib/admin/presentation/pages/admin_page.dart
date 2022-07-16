@@ -25,13 +25,6 @@ class AdminPage extends StatelessWidget {
           child: Wrap(
             children: [
               ButtonMolecule(
-                text: 'Agregar Nuevo Usuario',
-                ontap: () {
-                  navigateToPage(context, CreateUserPage());
-                },
-                icon: Icons.person_add_alt,
-              ),
-              ButtonMolecule(
                 text: 'Agregar Nuevo Articulo',
                 ontap: () {
                   navigateToPage(context, CreateArticlePage());
@@ -39,15 +32,22 @@ class AdminPage extends StatelessWidget {
                 icon: Icons.list,
               ),
               ButtonMolecule(
-                text: 'Editar Usuarios',
-                ontap: () {},
-                colors: Colors.blue.shade200,
+                text: 'Agregar Nuevo Usuario',
+                ontap: () {
+                  navigateToPage(context, CreateUserPage());
+                },
+                icon: Icons.person_add_alt,
               ),
               ButtonMolecule(
                 text: 'Editar Articulo',
                 ontap: () {},
                 colors: Colors.blue.shade200,
                 icon: Icons.edit_note,
+              ),
+              ButtonMolecule(
+                text: 'Editar Usuarios',
+                ontap: () {},
+                colors: Colors.blue.shade200,
               ),
             ],
           ),

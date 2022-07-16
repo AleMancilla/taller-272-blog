@@ -1,10 +1,12 @@
 import 'dart:math';
 
+import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_button_login.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_input_text.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_html/js.dart' as js;
 import 'fake_ui.dart' if (dart.library.html) 'real_ui.dart' as ui;
@@ -99,19 +101,23 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
           ),
           AtomButtonGlobal(
             textButton: 'Crear Articulo',
-            onTap: insrtArticle,
+            onTap: () => insrtArticle(context),
           ),
         ],
       ),
     );
   }
 
-  insrtArticle() {
+  insrtArticle(BuildContext context) {
+    final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
+
     widget.onButtonPress!(ArticleModel(
-      title: controllerTitle.text,
-      description: getMessageFromEditor(),
-      imageURL: controllerimageUrl.text,
-    ));
+        title: controllerTitle.text,
+        description: getMessageFromEditor(),
+        imageURL: controllerimageUrl.text,
+        collaborators: [
+          '${_userBlocProvider.state.user?.name ?? _userBlocProvider.state.user?.level}'
+        ]));
 
     controllerimageUrl.clear();
     controllerTitle.clear();

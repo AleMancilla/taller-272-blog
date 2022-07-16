@@ -11,7 +11,8 @@ class CreateArticleFirestoreDatasource {
       'description': articleModel.description, // 42
       'creationDate': FieldValue.serverTimestamp(),
       'actualizationDate': FieldValue.serverTimestamp(),
-      'collaborators': [],
+      'collaborators': articleModel.collaborators,
+      'importanceLevel': 1
     }).then((value) {
       print("article Added");
       // print(value);

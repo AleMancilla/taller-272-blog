@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class AtomImage extends StatelessWidget {
@@ -9,8 +11,8 @@ class AtomImage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       // constraints: const BoxConstraints(maxHeight: 250),
-      width: size.width * 0.6,
-      height: size.width * 0.6,
+      width: min(size.width * 0.6, 450),
+      height: min(size.width * 0.6, 450),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image.network(src, fit: BoxFit.cover),

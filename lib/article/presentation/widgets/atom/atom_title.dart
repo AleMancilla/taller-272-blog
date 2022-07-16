@@ -10,10 +10,21 @@ class AtomTitle extends StatelessWidget {
     return Text(
       title,
       style: const TextStyle(
-        color: Colors.white,
-        fontSize: 80,
-        fontWeight: FontWeight.bold,
-      ),
+          color: Colors.white,
+          fontSize: 80,
+          fontWeight: FontWeight.bold,
+          shadows: [
+            BoxShadow(
+              offset: Offset(-1, -1),
+              blurRadius: 5,
+              color: Colors.black38,
+            ),
+            BoxShadow(
+              offset: Offset(1, 1),
+              blurRadius: 5,
+              color: Colors.black38,
+            ),
+          ]),
     );
   }
 }

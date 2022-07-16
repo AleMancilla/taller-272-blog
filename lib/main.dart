@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
     chargeDataUser(_userBlocProvider);
     return MaterialApp(
       title: 'Material App',
-      // home: CreateArticlePage(),
-      home: AdminPage(),
+      home: HomePage(),
+      // home: AdminPage(),
     );
   }
 
