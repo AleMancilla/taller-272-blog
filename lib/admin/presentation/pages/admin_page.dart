@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/create_user_page.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/widget/molecule/button_molecule.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
@@ -8,44 +11,46 @@ class AdminPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blueGrey[900],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
         title: const Text('Panel Administrativo'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FloatingActionButton.extended(
-              onPressed: () {
-                navigateToPage(context, CreateUserPage());
-              },
-              backgroundColor: Colors.blueGrey[900],
-              label: const Text('Agregar Nuevo Usuario'),
-            ),
-            const SizedBox(height: 20),
-            FloatingActionButton.extended(
-              backgroundColor: Colors.blueGrey[900],
-              onPressed: () {
-                navigateToPage(context, CreateArticlePage());
-              },
-              label: const Text('Agregar Nuevo Articulo'),
-            ),
-            const SizedBox(height: 20),
-            FloatingActionButton.extended(
-              backgroundColor: Colors.blueGrey[900],
-              onPressed: () {},
-              label: const Text('Editar Articulo'),
-            ),
-            const SizedBox(height: 20),
-            FloatingActionButton.extended(
-              backgroundColor: Colors.blueGrey[900],
-              onPressed: () {},
-              label: const Text('Editar Usuarios'),
-            ),
-          ],
+        child: Container(
+          width: min(size.width, 900),
+          alignment: Alignment.center,
+          child: Wrap(
+            children: [
+              ButtonMolecule(
+                text: 'Agregar Nuevo Usuario',
+                ontap: () {
+                  navigateToPage(context, CreateUserPage());
+                },
+                icon: Icons.person_add_alt,
+              ),
+              ButtonMolecule(
+                text: 'Agregar Nuevo Articulo',
+                ontap: () {
+                  navigateToPage(context, CreateArticlePage());
+                },
+                icon: Icons.list,
+              ),
+              ButtonMolecule(
+                text: 'Editar Usuarios',
+                ontap: () {},
+                colors: Colors.blue.shade200,
+              ),
+              ButtonMolecule(
+                text: 'Editar Articulo',
+                ontap: () {},
+                colors: Colors.blue.shade200,
+                icon: Icons.edit_note,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_data_utils.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/pages/admin_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
@@ -43,8 +44,8 @@ class MyApp extends StatelessWidget {
     chargeDataUser(_userBlocProvider);
     return MaterialApp(
       title: 'Material App',
-      home: CreateArticlePage(),
-      // home: HomePage(),
+      // home: CreateArticlePage(),
+      home: AdminPage(),
     );
   }
 

@@ -18,7 +18,7 @@ class TemplateCreateUser extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
       decoration: BoxDecoration(
-        color: Colors.white54,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
