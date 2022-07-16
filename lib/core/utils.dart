@@ -10,6 +10,15 @@ void navigateToPage(BuildContext context, Widget page) {
   );
 }
 
+void navigateToPageAndRemove(BuildContext context, Widget page) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (BuildContext context) => page,
+    ),
+  );
+}
+
 Future loadingAsyncFunction(
   BuildContext context,
   Function function,
@@ -19,7 +28,7 @@ Future loadingAsyncFunction(
   Navigator.pop(context);
 }
 
-showProgressIndicator(BuildContext context) {
+void showProgressIndicator(BuildContext context) {
 // show the dialog
   showDialog(
     context: context,
@@ -34,7 +43,7 @@ showProgressIndicator(BuildContext context) {
   );
 }
 
-showErrorAlert(BuildContext context, String title, String description) {
+void showErrorAlert(BuildContext context, String title, String description) {
   StatusAlert.show(
     context,
     duration: const Duration(milliseconds: 3500),
@@ -44,7 +53,7 @@ showErrorAlert(BuildContext context, String title, String description) {
   );
 }
 
-showCorrectAlert(BuildContext context, String title, String description) {
+void showCorrectAlert(BuildContext context, String title, String description) {
   StatusAlert.show(
     context,
     duration: const Duration(milliseconds: 3500),

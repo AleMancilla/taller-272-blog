@@ -6,10 +6,14 @@ class AtomInputText extends StatelessWidget {
     required this.controller,
     required this.labelText,
     this.width = 300,
+    this.keyboardType,
+    this.secretText = false,
   }) : super(key: key);
   final TextEditingController controller;
   final String labelText;
   final double width;
+  final TextInputType? keyboardType;
+  final bool secretText;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +23,10 @@ class AtomInputText extends StatelessWidget {
       color: Colors.white,
       child: TextFormField(
         controller: controller,
+        keyboardType: keyboardType,
+        obscureText: secretText,
         decoration: InputDecoration(
             labelText: labelText,
-            // border: OutlineInputBorder(
-            //   borderSide: BorderSide(
-            //     color: Colors.red,
-            //     width: 5,
-            //   ),
-            // ),
             enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black38,
@@ -39,14 +39,7 @@ class AtomInputText extends StatelessWidget {
                 width: 2,
               ),
             ),
-            labelStyle: const TextStyle(color: Colors.black)
-            // errorBorder: OutlineInputBorder(
-            //   borderSide: BorderSide(
-            //     color: Colors.red,
-            //     width: 5,
-            //   ),
-            // ),
-            ),
+            labelStyle: const TextStyle(color: Colors.black)),
       ),
     );
   }

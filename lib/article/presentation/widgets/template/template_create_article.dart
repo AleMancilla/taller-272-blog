@@ -56,46 +56,52 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      width: min(size.width, 1080),
       decoration: BoxDecoration(
-        color: Colors.white54,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const AtomTextTitle(title: "CREAR ARTICULO"),
-            AtomInputText(
-              controller: controllerimageUrl,
-              labelText: 'Imagen URL',
-              width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const AtomTextTitle(title: "CREAR ARTICULO"),
+          AtomInputText(
+            controller: controllerimageUrl,
+            labelText: 'Imagen URL',
+            width: double.infinity,
+          ),
+          AtomInputText(
+            controller: controllerTitle,
+            labelText: 'Titulo',
+            width: double.infinity,
+          ),
+          // AtomInputText(
+          //   controller: controllerDescription,
+          //   labelText: 'Descripcion',
+          //   width: double.infinity,
+          // ),
+          Container(
+            child: const Text('Descripcion'),
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.only(left: 10),
+          ),
+          Container(
+            color: Colors.white,
+            height: 370,
+            child: HtmlElementView(
+              viewType: createdViewId,
             ),
-            AtomInputText(
-              controller: controllerTitle,
-              labelText: 'Titulo',
-              width: double.infinity,
-            ),
-            AtomInputText(
-              controller: controllerDescription,
-              labelText: 'Descripcion',
-              width: double.infinity,
-            ),
-            Container(
-              color: Colors.white,
-              height: 370,
-              child: HtmlElementView(
-                viewType: createdViewId,
-              ),
-            ),
-            AtomButtonGlobal(
-              textButton: 'Crear Articulo',
-              onTap: insrtArticle,
-            ),
-          ],
-        ),
+          ),
+          AtomButtonGlobal(
+            textButton: 'Crear Articulo',
+            onTap: insrtArticle,
+          ),
+        ],
       ),
     );
   }

@@ -16,7 +16,7 @@ class TemplateLogin extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
       decoration: BoxDecoration(
-        color: Colors.white54,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -30,6 +30,7 @@ class TemplateLogin extends StatelessWidget {
           AtomInputText(
             controller: controllerPass,
             labelText: 'Contraseña',
+            secretText: true,
           ),
           AtomButtonGlobal(
               textButton: 'Iniciar Sesion',

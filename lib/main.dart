@@ -1,6 +1,7 @@
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_data_utils.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/firebase_options.dart';
@@ -40,9 +41,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
     chargeDataUser(_userBlocProvider);
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Material App',
-      home: HomePage(),
+      home: CreateArticlePage(),
+      // home: HomePage(),
     );
   }
 
