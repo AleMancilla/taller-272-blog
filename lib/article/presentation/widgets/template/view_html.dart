@@ -24,6 +24,76 @@ This is the sample text from flutter.
 </p>
 <p>
 Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+Please subscribe to Breaking Code YT Channel.
+
 </p>
 </body>
 </html>
@@ -56,19 +126,19 @@ Please subscribe to Breaking Code YT Channel.
               children: [
                 ElevatedButton(
                     onPressed: getMessageFromHTML,
-                    child: Text("GET MESSAGE FROM HTMLxx")),
+                    child: const Text("GET MESSAGE FROM HTMLxx")),
                 ElevatedButton(
                     onPressed: () {
                       sendMessageToHTML(htmlText);
                     },
-                    child: Text("SEND MESSAGE TO HTMLxx"))
+                    child: const Text("SEND MESSAGE TO HTMLxx"))
               ],
             ),
             const SizedBox(height: 50),
             Container(
               color: Colors.red,
               height: 340,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: HtmlElementView(
                 viewType: createdViewId,
               ),
@@ -80,10 +150,10 @@ Please subscribe to Breaking Code YT Channel.
   }
 
   void getMessageFromHTML() {
-    final String str = connector.callMethod(
-      'getValue',
-    ) as String;
-    print(str);
+    // final String str = connector.callMethod(
+    //   'getValue',
+    // ) as String;
+    // print(str);
   }
 
   void sendMessageToHTML(String data) {

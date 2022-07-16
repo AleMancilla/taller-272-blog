@@ -49,7 +49,7 @@ class PersonalizedAppBar extends StatelessWidget {
     return InkWell(
       child: const Text('Iniciar Sesion'),
       onTap: () {
-        openPage(context, const LoginPage());
+        navigateToPage(context, const LoginPage());
       },
     );
   }
@@ -58,7 +58,7 @@ class PersonalizedAppBar extends StatelessWidget {
     return InkWell(
       onTap: () {
         // prefs.signOffUser();
-        openPage(context, const AdminPage());
+        navigateToPage(context, const AdminPage());
       },
       child: Row(
         children: const [

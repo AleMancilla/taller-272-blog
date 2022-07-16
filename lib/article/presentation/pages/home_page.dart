@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: false);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {}),
+      // floatingActionButton: FloatingActionButton(onPressed: () {}),
       body: Column(
         children: [
           PersonalizedAppBar(),

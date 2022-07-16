@@ -45,6 +45,8 @@ dependencies:
 
   flutter_bloc: ^8.0.1
 
+  fwfh_webview: ^0.6.2+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

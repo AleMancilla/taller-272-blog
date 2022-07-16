@@ -15,7 +15,7 @@ void main() async {
   );
   final prefs = AppPreferens();
   prefs.initPreferences();
-  runApp(AppState());
+  runApp(const AppState());
 }
 
 class AppState extends StatelessWidget {
@@ -24,7 +24,7 @@ class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      child: MyApp(),
+      child: const MyApp(),
       providers: [
         BlocProvider<ArticleBloc>(create: (_) => ArticleBloc()),
         BlocProvider<UserBloc>(create: (_) => UserBloc()),
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
     chargeDataUser(_userBlocProvider);
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Material App',
       home: HomePage(),
     );

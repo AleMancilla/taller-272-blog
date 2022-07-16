@@ -20,30 +20,30 @@ class AdminPage extends StatelessWidget {
           children: [
             FloatingActionButton.extended(
               onPressed: () {
-                openPage(context, CreateUserPage());
+                navigateToPage(context, CreateUserPage());
               },
               backgroundColor: Colors.blueGrey[900],
-              label: Text('Agregar Nuevo Usuario'),
+              label: const Text('Agregar Nuevo Usuario'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             FloatingActionButton.extended(
               backgroundColor: Colors.blueGrey[900],
               onPressed: () {
-                openPage(context, CreateArticlePage());
+                navigateToPage(context, CreateArticlePage());
               },
-              label: Text('Agregar Nuevo Articulo'),
+              label: const Text('Agregar Nuevo Articulo'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             FloatingActionButton.extended(
               backgroundColor: Colors.blueGrey[900],
               onPressed: () {},
-              label: Text('Editar Articulo'),
+              label: const Text('Editar Articulo'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             FloatingActionButton.extended(
               backgroundColor: Colors.blueGrey[900],
               onPressed: () {},
-              label: Text('Editar Usuarios'),
+              label: const Text('Editar Usuarios'),
             ),
           ],
         ),

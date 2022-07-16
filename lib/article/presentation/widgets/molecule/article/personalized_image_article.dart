@@ -7,10 +7,11 @@ class PersonalizedImageArticle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        constraints: const BoxConstraints(maxHeight: 160),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: SizedBox(
+        height: 160,
+        // constraints: const BoxConstraints(maxHeight: 160),
         child: Image.network(
           urlImage,
           fit: BoxFit.cover,

@@ -4,16 +4,13 @@ import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_bu
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_input_text.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
-import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/editor.dart';
-import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/view_html.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_html/js.dart' as js;
 import 'fake_ui.dart' if (dart.library.html) 'real_ui.dart' as ui;
 
 class TemplateCreateArticle extends StatefulWidget {
-  TemplateCreateArticle({Key? key, this.onButtonPress}) : super(key: key);
+  const TemplateCreateArticle({Key? key, this.onButtonPress}) : super(key: key);
   final Function? onButtonPress;
 
   @override

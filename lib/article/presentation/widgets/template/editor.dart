@@ -56,16 +56,16 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
               children: [
                 ElevatedButton(
                     onPressed: getMessageFromEditor,
-                    child: Text("GET MESSAGE FROM EDITOR")),
+                    child: const Text("GET MESSAGE FROM EDITOR")),
                 ElevatedButton(
                     onPressed: () {
                       sendMessageToEditor(htmlText);
                     },
-                    child: Text("SEND MESSAGE TO EDITOR"))
+                    child: const Text("SEND MESSAGE TO EDITOR"))
               ],
             ),
             const SizedBox(height: 50),
-            Container(
+            SizedBox(
               height: 340,
               child: HtmlElementView(
                 viewType: createdViewId,
@@ -78,10 +78,10 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
   }
 
   void getMessageFromEditor() {
-    final String str = connector.callMethod(
-      'getValue',
-    ) as String;
-    print(str);
+    // final String str = connector.callMethod(
+    //   'getValue',
+    // ) as String;
+    // print(str);
   }
 
   void sendMessageToEditor(String data) {

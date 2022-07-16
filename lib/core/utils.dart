@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:status_alert/status_alert.dart';
 
-void openPage(BuildContext context, Widget page) {
+void navigateToPage(BuildContext context, Widget page) {
   Navigator.push(
     context,
     MaterialPageRoute(

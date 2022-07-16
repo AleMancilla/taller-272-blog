@@ -8,10 +8,10 @@ class ReadArticlesFirestoreDatasource {
     await articles.get().then((QuerySnapshot querySnapshot) {
       for (var doc in querySnapshot.docs) {
         ArticleModel articleModel = ArticleModel(
-          title: doc['title'],
-          description: doc['description'],
-          imageURL: doc['imageURL'],
-        );
+            title: doc['title'],
+            description: doc['description'],
+            imageURL: doc['imageURL'],
+            idArticulo: doc.id);
         listArticle.add(articleModel);
       }
     });
