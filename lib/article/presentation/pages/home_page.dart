@@ -4,6 +4,7 @@ import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/personalized_title.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/item_article.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/personalized_app_bar.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/personalized_buttom_info.dart';
 import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,6 +47,7 @@ class HomePage extends StatelessWidget {
         children: [
           const PersonalizedTitle(),
           ...getListArticle(state.listArticle!),
+          const PersonalizedButtomInfo(),
         ],
       ),
     );
