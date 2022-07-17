@@ -5,6 +5,7 @@ import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_bu
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_input_text.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/atom/atom_login_text.dart';
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
+import 'package:blog_taller_base_de_datos/core/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:universal_html/html.dart' as html;
@@ -12,8 +13,17 @@ import 'package:universal_html/js.dart' as js;
 import 'fake_ui.dart' if (dart.library.html) 'real_ui.dart' as ui;
 
 class TemplateCreateArticle extends StatefulWidget {
-  const TemplateCreateArticle({Key? key, this.onButtonPress}) : super(key: key);
+  const TemplateCreateArticle(
+      {Key? key,
+      this.onButtonPress,
+      this.imageUrl,
+      this.title,
+      this.description})
+      : super(key: key);
   final Function? onButtonPress;
+  final String? imageUrl;
+  final String? title;
+  final String? description;
 
   @override
   State<TemplateCreateArticle> createState() => _TemplateCreateArticleState();
@@ -21,9 +31,7 @@ class TemplateCreateArticle extends StatefulWidget {
 
 class _TemplateCreateArticleState extends State<TemplateCreateArticle> {
   final TextEditingController controllerimageUrl = TextEditingController();
-
   final TextEditingController controllerTitle = TextEditingController();
-
   final TextEditingController controllerDescription = TextEditingController();
 
   late js.JsObject connector;
@@ -53,12 +61,28 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
 
     ui.platformViewRegistry
         .registerViewFactory(createdViewId, (int viewId) => element);
+    if (widget.imageUrl != null) controllerimageUrl.text = widget.imageUrl!;
+    if (widget.title != null) controllerTitle.text = widget.title!;
+    if (widget.description != null) {
+      controllerDescription.text = widget.description!;
+    }
     super.initState();
+    Future.delayed(Duration(milliseconds: 400), () {
+      if (widget.description != null) {
+        try {
+          sendMessageToEditor(controllerDescription.text);
+        } catch (e) {
+          showErrorAlert(context, 'Error al cargar contenido',
+              'Por favor vuelva a intentarlo');
+        }
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
@@ -100,15 +124,16 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
             ),
           ),
           AtomButtonGlobal(
-            textButton: 'Crear Articulo',
-            onTap: () => insrtArticle(context),
+            textButton:
+                widget.title != null ? 'Editar Articulo' : 'Crear Articulo',
+            onTap: () => getDataFromArticle(context),
           ),
         ],
       ),
     );
   }
 
-  insrtArticle(BuildContext context) {
+  void getDataFromArticle(BuildContext context) {
     final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
 
     widget.onButtonPress!(ArticleModel(
@@ -129,5 +154,12 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
       'getValue',
     ) as String;
     return str;
+  }
+
+  void sendMessageToEditor(String data) {
+    element.contentWindow!.postMessage({
+      'id': 'value',
+      'msg': data,
+    }, "*");
   }
 }

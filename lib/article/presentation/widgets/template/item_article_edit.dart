@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/article_page.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_divider.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_image_article.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/molecule/article/personalized_title_article.dart';
@@ -36,7 +37,17 @@ class ItemArticleEdit extends StatelessWidget {
                   title: articleModel.title,
                   seeMore: () => _onpress(context),
                   maxHeight: 90),
-              PersonalizedSingleButton(text: 'Edit', ontap: () {}),
+              PersonalizedSingleButton(
+                text: 'Edit',
+                ontap: () {
+                  navigateToPage(
+                    context,
+                    CreateArticlePage(
+                      article: articleModel,
+                    ),
+                  );
+                },
+              ),
               PersonalizedSingleButton(
                   text: 'Delete',
                   color: Colors.red,
