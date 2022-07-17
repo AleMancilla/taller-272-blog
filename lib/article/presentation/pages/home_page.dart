@@ -56,7 +56,8 @@ class HomePage extends StatelessWidget {
   Widget _chargeAllArticles(BuildContext context, ArticleBloc _articleBloc) {
     Future.delayed(Duration.zero, () {
       // showProgressIndicator(context);
-      loadingAsyncFunction(context, () async => getAllArticles(_articleBloc));
+      loadingAsyncFunction(
+          context, () async => await getAllArticles(_articleBloc));
     });
 
     return Container();

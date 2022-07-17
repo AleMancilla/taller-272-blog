@@ -24,7 +24,11 @@ Future loadingAsyncFunction(
   Function function,
 ) async {
   showProgressIndicator(context);
-  await function();
+  try {
+    await function();
+  } catch (e) {
+    showErrorAlert(context, 'ERROR AL CAPTURAR DATOS', '$e');
+  }
   Navigator.pop(context);
 }
 

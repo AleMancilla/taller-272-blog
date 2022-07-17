@@ -5,9 +5,11 @@ class PersonalizedTitleArticle extends StatelessWidget {
     Key? key,
     required this.title,
     required this.seeMore,
+    this.maxHeight = 140,
   }) : super(key: key);
   final String title;
   final Function seeMore;
+  final double maxHeight;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -16,7 +18,7 @@ class PersonalizedTitleArticle extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            constraints: const BoxConstraints(maxHeight: 140),
+            constraints: BoxConstraints(maxHeight: maxHeight),
             child: Text(
               title,
               style: const TextStyle(

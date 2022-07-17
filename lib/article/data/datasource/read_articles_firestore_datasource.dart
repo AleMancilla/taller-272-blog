@@ -7,12 +7,28 @@ class ReadArticlesFirestoreDatasource {
     List<ArticleModel> listArticle = [];
     await articles.get().then((QuerySnapshot querySnapshot) {
       for (var doc in querySnapshot.docs) {
-        ArticleModel articleModel = ArticleModel(
-            title: doc['title'],
-            description: doc['description'],
-            imageURL: doc['imageURL'],
-            idArticulo: doc.id);
-        listArticle.add(articleModel);
+        try {
+          Map _json = (doc.data() as Map);
+          ArticleModel articleModel = ArticleModel(
+              title: _json['title'],
+              description: _json['description'],
+              imageURL: _json['imageURL'],
+              groupTheme: _json['groupTheme'] ?? 'General',
+              collaborators: (_json['collaborators'] as List)
+                  .map((e) => e as String)
+                  .toList(),
+              dateCreation: DateTime.parse(
+                  (_json['creationDate'] as Timestamp).toDate().toString()),
+              dateModify: DateTime.parse(
+                  (_json['actualizationDate'] as Timestamp)
+                      .toDate()
+                      .toString()),
+              orderLevel: _json['orderLevel'] ?? 1,
+              idArticulo: doc.id);
+          listArticle.add(articleModel);
+        } catch (e) {
+          throw 'Error de lectura: $e';
+        }
       }
     });
 

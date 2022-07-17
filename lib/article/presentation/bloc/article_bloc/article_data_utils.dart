@@ -7,10 +7,12 @@ final ReadListArticleFirestoreRepositoryImplements
 
 // final AppPreferens prefs = AppPreferens();
 
-getAllArticles(_articleBloc) async {
+Future getAllArticles(_articleBloc) async {
   await readListArticleFirestoreRepositoryImplements
       .readListArticles()
       .then((value) {
     _articleBloc.add(ActivateArticleEvent(value));
+  }).onError((error, stackTrace) {
+    return throw '$error';
   });
 }
