@@ -11,5 +11,8 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
     on<ActivateArticleEvent>((event, emit) {
       emit(ArticleSetState(event.listArticle));
     });
+    on<ReloadEvent>((event, emit) {
+      emit(ArticleSetState([]));
+    });
   }
 }

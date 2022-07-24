@@ -17,7 +17,7 @@ class CreateArticleFirestoreDatasource {
       print("article Added");
       // print(value);
     }).catchError((error) {
-      print("Failed to add article: $error");
+      throw ("Failed to add article: $error");
     });
   }
 }

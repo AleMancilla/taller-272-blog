@@ -7,3 +7,7 @@ class ActivateArticleEvent extends ArticleEvent {
   final List<ArticleModel> listArticle;
   ActivateArticleEvent(this.listArticle);
 }
+
+class ReloadEvent extends ArticleEvent {
+  ReloadEvent();
+}

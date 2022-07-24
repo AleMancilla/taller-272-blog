@@ -23,9 +23,9 @@ class ArticleModel {
 
   ArticleModel copyWith({
     String? idArticulo,
-    required String title,
-    required String description,
-    required String imageURL,
+    String? title,
+    String? description,
+    String? imageURL,
     String? groupTheme,
     DateTime? dateCreation,
     DateTime? dateModify,

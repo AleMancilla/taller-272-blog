@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:blog_taller_base_de_datos/article/data/models/article_model.dart';
+import 'package:blog_taller_base_de_datos/article/data/respositories/delete_article_firestore_repository_implement.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_data_utils.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/atom/atom_divider.dart';
@@ -52,7 +54,43 @@ class ItemArticleEdit extends StatelessWidget {
                   text: 'Delete',
                   color: Colors.red,
                   icon: Icons.close,
-                  ontap: () {}),
+                  ontap: () async {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return AlertDialog(
+                            title: Text('Alerta'),
+                            content:
+                                Text('Seguro que quieres eliminar el articulo'),
+                            actions: [
+                              ActionChip(
+                                  label: Text('Cancelar'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  }),
+                              ActionChip(
+                                  label: Text('Aceptar'),
+                                  onPressed: () async {
+                                    DeleteArticleFirestoreRepositoryImplement
+                                        deleteArticleFirestoreRepositoryImplement =
+                                        DeleteArticleFirestoreRepositoryImplement();
+                                    await loadingAsyncFunction(
+                                      context,
+                                      () async {
+                                        await deleteArticleFirestoreRepositoryImplement
+                                            .deleteArticle(
+                                                articleModel.idArticulo!);
+
+                                        chargeAllArticles(context);
+                                        return;
+                                      },
+                                    );
+                                    Navigator.pop(context);
+                                  }),
+                            ],
+                          );
+                        });
+                  }),
             ],
           ),
         ],

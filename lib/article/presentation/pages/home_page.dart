@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: false);
+    final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: true);
     return Scaffold(
       // floatingActionButton: FloatingActionButton(onPressed: () {}),
       body: Column(
@@ -30,7 +30,8 @@ class HomePage extends StatelessWidget {
                   if (state.listArticle != null) {
                     return _showListArticles(state);
                   } else {
-                    return _chargeAllArticles(context, _articleBloc);
+                    return chargeAllArticlesWidget(context,
+                        articleBloc: _articleBloc);
                   }
                 },
               ),
@@ -51,16 +52,6 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _chargeAllArticles(BuildContext context, ArticleBloc _articleBloc) {
-    Future.delayed(Duration.zero, () {
-      // showProgressIndicator(context);
-      loadingAsyncFunction(
-          context, () async => await getAllArticles(_articleBloc));
-    });
-
-    return Container();
   }
 
   List<Widget> getListArticle(List<ArticleModel> listArticle) {

@@ -1,4 +1,5 @@
 import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_data_utils.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/widgets/template/item_article_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,7 @@ class ListEditArticlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: false);
+    final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
       appBar: AppBar(
@@ -17,7 +18,9 @@ class ListEditArticlePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print(_articleBloc.state);
+          chargeAllArticlesWidget(context, articleBloc: _articleBloc);
+          // _articleBloc.add(ReloadEvent());
+          print('lo hixzo');
         },
       ),
       body: Center(

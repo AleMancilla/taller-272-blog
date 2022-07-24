@@ -4,9 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EditArticleFirestoreDatasource {
   Future<void> editArticle(ArticleModel articleModel) {
-    print('==================================');
-    print(articleModel.idArticulo);
-    print('==================================');
     // Call the user's CollectionReference to add a new user
     return articles.doc(articleModel.idArticulo).update({
       'imageURL': articleModel.imageURL, // John Doe
@@ -20,7 +17,7 @@ class EditArticleFirestoreDatasource {
       print("article Added");
       // print(value);
     }).catchError((error) {
-      print("Failed to add article: $error");
+      throw ("Failed to edit article: $error");
     });
   }
 }
