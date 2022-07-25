@@ -17,5 +17,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<LogOutUser>((event, emit) {
       emit(const UserInitial());
     });
+
+    on<GetListUsers>((event, emit) {
+      emit( UserListState(event.listUsers));
+    });
   }
 }

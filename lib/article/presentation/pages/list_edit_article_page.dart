@@ -16,13 +16,6 @@ class ListEditArticlePage extends StatelessWidget {
         backgroundColor: Colors.blueGrey[900],
         title: const Text('Panel Administrativo'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          chargeAllArticlesWidget(context, articleBloc: _articleBloc);
-          // _articleBloc.add(ReloadEvent());
-          print('lo hixzo');
-        },
-      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

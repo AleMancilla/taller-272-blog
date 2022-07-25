@@ -9,3 +9,8 @@ class LoginUser extends UserEvent {
 }
 
 class LogOutUser extends UserEvent {}
+
+class GetListUsers extends UserEvent {
+  final List<UserModel?> listUsers;
+  GetListUsers(this.listUsers);
+}

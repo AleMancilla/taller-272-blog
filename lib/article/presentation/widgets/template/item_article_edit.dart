@@ -55,47 +55,49 @@ class ItemArticleEdit extends StatelessWidget {
                   color: Colors.red,
                   icon: Icons.close,
                   ontap: () async {
-                    showDialog(
-                        context: context,
-                        builder: (_) {
-                          return AlertDialog(
-                            title: Text('Alerta'),
-                            content:
-                                Text('Seguro que quieres eliminar el articulo'),
-                            actions: [
-                              ActionChip(
-                                  label: Text('Cancelar'),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  }),
-                              ActionChip(
-                                  label: Text('Aceptar'),
-                                  onPressed: () async {
-                                    DeleteArticleFirestoreRepositoryImplement
-                                        deleteArticleFirestoreRepositoryImplement =
-                                        DeleteArticleFirestoreRepositoryImplement();
-                                    await loadingAsyncFunction(
-                                      context,
-                                      () async {
-                                        await deleteArticleFirestoreRepositoryImplement
-                                            .deleteArticle(
-                                                articleModel.idArticulo!);
-
-                                        chargeAllArticles(context);
-                                        return;
-                                      },
-                                    );
-                                    Navigator.pop(context);
-                                  }),
-                            ],
-                          );
-                        });
+                    await _deleteFunction(context);
                   }),
             ],
           ),
         ],
       ),
     );
+  }
+
+  _deleteFunction(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            title: Text('Alerta'),
+            content: Text('Seguro que quieres eliminar el articulo'),
+            actions: [
+              ActionChip(
+                  label: Text('Cancelar'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              ActionChip(
+                  label: Text('Aceptar'),
+                  onPressed: () async {
+                    DeleteArticleFirestoreRepositoryImplement
+                        deleteArticleFirestoreRepositoryImplement =
+                        DeleteArticleFirestoreRepositoryImplement();
+                    await loadingAsyncFunction(
+                      context,
+                      () async {
+                        await deleteArticleFirestoreRepositoryImplement
+                            .deleteArticle(articleModel.idArticulo!);
+
+                        chargeAllArticles(context);
+                        return;
+                      },
+                    );
+                    Navigator.pop(context);
+                  }),
+            ],
+          );
+        });
   }
 
   Expanded _personalizedImageArticle() {

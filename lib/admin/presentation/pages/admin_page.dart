@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:blog_taller_base_de_datos/admin/presentation/pages/create_user_page.dart';
+import 'package:blog_taller_base_de_datos/admin/presentation/pages/list_edit_user_page.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/widget/molecule/button_molecule.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/create_article_page.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/list_edit_article_page.dart';
@@ -49,7 +50,9 @@ class AdminPage extends StatelessWidget {
               ),
               ButtonMolecule(
                 text: 'Editar Usuarios',
-                ontap: () {},
+                ontap: () {
+                  navigateToPage(context, const ListEditUserPage());
+                },
                 colors: Colors.blue.shade200,
               ),
             ],

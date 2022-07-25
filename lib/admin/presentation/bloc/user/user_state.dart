@@ -4,8 +4,9 @@ part of 'user_bloc.dart';
 abstract class UserState {
   final bool existUser;
   final UserModel? user;
+  final List<UserModel?>? listUser;
 
-  const UserState({this.existUser = false, this.user});
+  const UserState({this.listUser, this.existUser = false, this.user});
 }
 
 class UserInitial extends UserState {
@@ -15,4 +16,9 @@ class UserInitial extends UserState {
 class UserSetState extends UserState {
   final UserModel user;
   const UserSetState(this.user) : super(user: user, existUser: true);
+}
+
+class UserListState extends UserState {
+  final List<UserModel?> lista;
+  const UserListState(this.lista) : super(listUser: lista);
 }
