@@ -1,6 +1,7 @@
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_bloc.dart';
 import 'package:blog_taller_base_de_datos/admin/presentation/bloc/user/user_data_utils.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/bloc/article_bloc/article_bloc.dart';
+import 'package:blog_taller_base_de_datos/article/presentation/bloc/group_article/groups_article_bloc.dart';
 import 'package:blog_taller_base_de_datos/article/presentation/pages/home_page.dart';
 import 'package:blog_taller_base_de_datos/core/app_preferens.dart';
 import 'package:blog_taller_base_de_datos/firebase_options.dart';
@@ -28,6 +29,7 @@ class AppState extends StatelessWidget {
       providers: [
         BlocProvider<ArticleBloc>(create: (_) => ArticleBloc()),
         BlocProvider<UserBloc>(create: (_) => UserBloc()),
+        BlocProvider<GroupsArticleBloc>(create: (_) => GroupsArticleBloc()),
       ],
     );
   }

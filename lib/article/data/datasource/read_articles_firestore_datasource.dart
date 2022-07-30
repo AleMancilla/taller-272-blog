@@ -23,7 +23,7 @@ class ReadArticlesFirestoreDatasource {
                   (_json['actualizationDate'] as Timestamp)
                       .toDate()
                       .toString()),
-              orderLevel: _json['orderLevel'] ?? 1,
+              orderLevel: _json['importanceLevel'] ?? 1,
               idArticulo: doc.id);
           listArticle.add(articleModel);
         } catch (e) {

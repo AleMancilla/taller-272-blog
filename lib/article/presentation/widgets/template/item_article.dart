@@ -30,7 +30,8 @@ class ItemArticle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PersonalizedTitleArticle(
-                  title: articleModel.title, seeMore: () => _onpress(context)),
+                  title: '${articleModel.orderLevel} - ${articleModel.title}',
+                  seeMore: () => _onpress(context)),
               PersonalizedBodyArticle(description: articleModel.description),
               _personalizedImageArticle(),
             ],

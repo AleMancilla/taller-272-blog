@@ -7,7 +7,7 @@ class ArticleModel {
   DateTime? dateCreation;
   DateTime? dateModify;
   List<String>? collaborators;
-  int? orderLevel;
+  double orderLevel;
 
   ArticleModel({
     this.idArticulo,
@@ -30,7 +30,7 @@ class ArticleModel {
     DateTime? dateCreation,
     DateTime? dateModify,
     List<String>? collaborators,
-    int? orderLevel,
+    double? orderLevel,
   }) {
     return ArticleModel(
       idArticulo: idArticulo ?? this.idArticulo,
