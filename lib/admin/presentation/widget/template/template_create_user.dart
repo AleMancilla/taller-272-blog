@@ -43,7 +43,15 @@ class TemplateCreateUser extends StatelessWidget {
           //   controller: controllerLevel,
           //   labelText: '* Nivel de permiso',
           // ),
-          DropDownList(controllerLevel: controllerLevel),
+          DropDownList(
+            controllerLevel: controllerLevel,
+            listItems: const [
+              'ADMINISTRADOR',
+              'CREADOR',
+              'EDITOR',
+            ],
+            defaultText: 'Elija el nivel de permiso',
+          ),
           AtomButtonGlobal(
             textButton: 'Crear Usuario',
             onTap: registerUser,

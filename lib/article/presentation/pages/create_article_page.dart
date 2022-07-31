@@ -32,6 +32,7 @@ class CreateArticlePage extends StatelessWidget {
           imageUrl: article?.imageURL,
           description: article?.description,
           title: article?.title,
+          levelGroup: article?.orderLevel,
         ),
       ),
     );
@@ -39,9 +40,12 @@ class CreateArticlePage extends StatelessWidget {
 
   Future _editArticle(ArticleModel articleModel, BuildContext context) async {
     ArticleModel _article = article!.copyWith(
-        title: articleModel.title,
-        description: articleModel.description,
-        imageURL: articleModel.imageURL);
+      title: articleModel.title,
+      description: articleModel.description,
+      imageURL: articleModel.imageURL,
+      groupTheme: articleModel.groupTheme,
+      orderLevel: articleModel.orderLevel,
+    );
     await loadingAsyncFunction(
       context,
       () async {
@@ -50,7 +54,8 @@ class CreateArticlePage extends StatelessWidget {
       },
     );
     showCorrectAlert(context, 'Exito', 'Se edito correctamente el articulo');
-    navigateToPageAndRemove(context, const HomePage());
+    Navigator.pop(context);
+    // navigateToPageAndRemove(context, const HomePage());
     // chargeAllArticles(context);
   }
 
@@ -63,7 +68,8 @@ class CreateArticlePage extends StatelessWidget {
       },
     );
     showCorrectAlert(context, 'Exito', 'Se agrego correctamente el articulo');
-    navigateToPageAndRemove(context, const HomePage());
+    Navigator.pop(context);
+    // navigateToPageAndRemove(context, const HomePage());
     // chargeAllArticles(context);
   }
 }

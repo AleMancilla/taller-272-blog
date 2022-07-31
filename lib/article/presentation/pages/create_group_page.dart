@@ -19,9 +19,10 @@ class CreateGroupPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: TemplateCreateGroup(onPress: (String title) {
+        child: TemplateCreateGroup(onPress: (String title, String nivel) {
           print('===');
-          createGroupFirestoreDatasource.addGroup(GroupModel(title));
+          createGroupFirestoreDatasource.addGroup(
+              GroupModel(title, nivelOrdenamiento: double.parse(nivel)));
           Navigator.pop(context);
           // return readUserIfExist(user, context, _userBlocProvider);
         }),

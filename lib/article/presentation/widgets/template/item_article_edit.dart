@@ -22,7 +22,7 @@ class ItemArticleEdit extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
-      constraints: const BoxConstraints(maxHeight: 150),
+      constraints: const BoxConstraints(maxHeight: 200),
       width: min(size.width * 0.9, 1280),
       color: primaryColor,
       child: Column(
@@ -36,7 +36,7 @@ class ItemArticleEdit extends StatelessWidget {
               _personalizedImageArticle(),
               const SizedBox(width: 20),
               PersonalizedTitleArticle(
-                  title: articleModel.title,
+                  title: '${articleModel.orderLevel} - ${articleModel.title}',
                   seeMore: () => _onpress(context),
                   maxHeight: 90),
               PersonalizedSingleButton(
@@ -106,7 +106,7 @@ class ItemArticleEdit extends StatelessWidget {
       child: Hero(
         tag: '${articleModel.idArticulo}',
         child: PersonalizedImageArticle(
-            urlImage: articleModel.imageURL, height: 100),
+            urlImage: articleModel.imageURL, height: 150),
       ),
     );
   }

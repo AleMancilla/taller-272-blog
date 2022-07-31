@@ -110,13 +110,14 @@ List<Widget> getListArticle(
         constraints: const BoxConstraints(maxHeight: 100),
         width: min(size.width * 0.9, 1280),
         color: Colors.blueGrey[900],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        height: 500,
+        child: Row(
           children: [
             PersonalizedTitleArticle(
-                title: '${group.nivelOrdenamiento} - ${group.title}',
-                color: Colors.white),
-            // Text('${group.nivelOrdenamiento} - ${group.title}'),
+              title: '${group.nivelOrdenamiento} - ${group.title}',
+              color: Colors.white,
+              // maxHeight: 200,
+            ),
           ],
         ),
       );

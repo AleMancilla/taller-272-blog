@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 class DropDownList extends StatefulWidget {
   final TextEditingController controllerLevel;
+  final List<String> listItems;
+  final String defaultText;
 
-  const DropDownList({Key? key, required this.controllerLevel})
-      : super(key: key);
+  const DropDownList({
+    Key? key,
+    required this.controllerLevel,
+    required this.listItems,
+    required this.defaultText,
+  }) : super(key: key);
   @override
   _DropDownListState createState() => _DropDownListState();
 }
@@ -23,19 +29,15 @@ class _DropDownListState extends State<DropDownList> {
         //elevation: 5,
         style: const TextStyle(color: Colors.black),
 
-        items: <String>[
-          'ADMINISTRADOR',
-          'CREADOR',
-          'EDITOR',
-        ].map<DropdownMenuItem<String>>((String value) {
+        items: widget.listItems.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(value),
           );
         }).toList(),
-        hint: const Text(
-          "Elija el nivel de permiso",
-          style: TextStyle(
+        hint: Text(
+          widget.defaultText,
+          style: const TextStyle(
               color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
         ),
         onChanged: (String? value) {

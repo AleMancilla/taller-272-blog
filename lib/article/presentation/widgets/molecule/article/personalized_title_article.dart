@@ -22,14 +22,15 @@ class PersonalizedTitleArticle extends StatelessWidget {
         children: [
           Container(
             constraints: BoxConstraints(maxHeight: maxHeight),
+            // height: 80,
             child: Text(
               title,
               style: TextStyle(
                 color: color ?? Colors.black,
-                fontSize: 45,
+                fontSize: seeMore != null ? 45 : 25,
                 fontWeight: FontWeight.bold,
               ),
-              overflow: TextOverflow.fade,
+              overflow: TextOverflow.clip,
             ),
           ),
           if (seeMore != null)

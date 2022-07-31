@@ -45,12 +45,12 @@ class ListEditArticlePage extends StatelessWidget {
     );
   }
 
-  List<ItemArticleEdit> _listArticlesEdit(ArticleBloc _articleBloc) {
-    // ItemArticleEdit
-    return _articleBloc.state.listArticle != null
-        ? _articleBloc.state.listArticle!
-            .map((article) => ItemArticleEdit(articleModel: article))
-            .toList()
-        : [];
-  }
+  // List<ItemArticleEdit> _listArticlesEdit(ArticleBloc _articleBloc) {
+  //   // ItemArticleEdit
+  //   return _articleBloc.state.listArticle != null
+  //       ? _articleBloc.state.listArticle!
+  //           .map((article) => ItemArticleEdit(articleModel: article))
+  //           .toList()
+  //       : [];
+  // }
 }
