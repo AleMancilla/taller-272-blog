@@ -9,10 +9,28 @@ class PersonalizedTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 70),
-      child: Column(
-        children: const [
-          AtomTitle(title: 'INF - 272'),
-          AtomSubtitle(subtitle: 'Taller de base de datos'),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              children: const [
+                AtomTitle(title: 'INF - 272'),
+                AtomSubtitle(subtitle: 'Taller de base de datos'),
+              ],
+            ),
+          ),
+          Image.asset(
+            'assets/images/fcpn.png',
+            height: 100,
+          ),
+          Image.asset(
+            'assets/images/informatica.png',
+            height: 100,
+          ),
+          Image.asset(
+            'assets/images/UMSA.png',
+            height: 100,
+          ),
         ],
       ),
     );

@@ -33,6 +33,7 @@ class ItemArticle extends StatelessWidget {
                   title: '${articleModel.orderLevel} - ${articleModel.title}',
                   seeMore: () => _onpress(context)),
               PersonalizedBodyArticle(description: articleModel.description),
+              const SizedBox(width: 20),
               _personalizedImageArticle(),
             ],
           ),

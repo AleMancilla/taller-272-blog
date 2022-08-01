@@ -32,6 +32,7 @@ class ArticlePageTemplate extends StatelessWidget {
             ),
             AtomTitle(title: article.title),
             AtomBodyHTML(description: article.description),
+            Text(article.collaborators.toString()),
           ],
         ),
       ),

@@ -16,8 +16,8 @@ class TemplateUserListEdit extends StatelessWidget {
       child: Row(
         children: [
           Icon(Icons.person),
-          Text(user.user),
-          Text(user.name ?? 'No Data'),
+          Expanded(child: Text(user.user)),
+          Expanded(child: Text(user.name ?? 'No Data')),
           PersonalizedSingleButton(
             text: 'Edit',
             ontap: () {

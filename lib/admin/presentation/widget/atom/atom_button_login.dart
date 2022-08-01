@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AtomButtonGlobal extends StatelessWidget {
-  const AtomButtonGlobal({Key? key, required this.textButton, this.onTap})
+  const AtomButtonGlobal(
+      {Key? key, required this.textButton, this.onTap, this.color})
       : super(key: key);
   final String textButton;
   final Function? onTap;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class AtomButtonGlobal extends StatelessWidget {
             child: Ink(
               padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: color ?? Colors.black,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(

@@ -52,9 +52,20 @@ class TemplateCreateUser extends StatelessWidget {
             ],
             defaultText: 'Elija el nivel de permiso',
           ),
-          AtomButtonGlobal(
-            textButton: 'Crear Usuario',
-            onTap: registerUser,
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              AtomButtonGlobal(
+                textButton: 'Cancelar',
+                onTap: () => Navigator.pop(context),
+                color: Colors.red,
+              ),
+              AtomButtonGlobal(
+                textButton: 'Crear Usuario',
+                onTap: registerUser,
+              ),
+            ],
           ),
         ],
       ),

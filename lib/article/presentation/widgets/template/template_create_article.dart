@@ -167,10 +167,20 @@ Please subscribe to <strong>Breaking Code<strong> YT Channel.
               viewType: createdViewId,
             ),
           ),
-          AtomButtonGlobal(
-            textButton:
-                widget.title != null ? 'Editar Articulo' : 'Crear Articulo',
-            onTap: () => getDataFromArticle(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              AtomButtonGlobal(
+                textButton: 'Cancelar',
+                onTap: () => Navigator.pop(context),
+                color: Colors.red,
+              ),
+              AtomButtonGlobal(
+                textButton:
+                    widget.title != null ? 'Guardar Cambios' : 'Crear Articulo',
+                onTap: () => getDataFromArticle(context),
+              ),
+            ],
           ),
         ],
       ),
