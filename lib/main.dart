@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final _userBlocProvider = BlocProvider.of<UserBloc>(context, listen: false);
     chargeDataUser(_userBlocProvider);
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Material App',
       home: HomePage(),
       // home: AdminPage(),

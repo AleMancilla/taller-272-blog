@@ -7,32 +7,64 @@ class PersonalizedTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 70),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              children: const [
-                AtomTitle(title: 'INF - 272'),
-                AtomSubtitle(subtitle: 'Taller de base de datos'),
-              ],
+      child: size.width > 750 ? _ifIsWeb() : _ifIsMobile(),
+    );
+  }
+
+  Row _ifIsWeb() {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            children: const [
+              AtomTitle(title: 'INF - 272'),
+              AtomSubtitle(subtitle: 'Taller de base de datos'),
+            ],
+          ),
+        ),
+        Image.asset(
+          'assets/images/fcpn.png',
+          height: 100,
+        ),
+        Image.asset(
+          'assets/images/informatica.png',
+          height: 100,
+        ),
+        Image.asset(
+          'assets/images/UMSA.png',
+          height: 100,
+        ),
+      ],
+    );
+  }
+
+  Column _ifIsMobile() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const AtomTitle(title: 'INF - 272'),
+        const AtomSubtitle(subtitle: 'Taller de base de datos'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              'assets/images/fcpn.png',
+              height: 100,
             ),
-          ),
-          Image.asset(
-            'assets/images/fcpn.png',
-            height: 100,
-          ),
-          Image.asset(
-            'assets/images/informatica.png',
-            height: 100,
-          ),
-          Image.asset(
-            'assets/images/UMSA.png',
-            height: 100,
-          ),
-        ],
-      ),
+            Image.asset(
+              'assets/images/informatica.png',
+              height: 100,
+            ),
+            Image.asset(
+              'assets/images/UMSA.png',
+              height: 100,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

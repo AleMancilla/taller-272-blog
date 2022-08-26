@@ -16,9 +16,10 @@ class ItemArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    print('========> size $size');
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
-      constraints: const BoxConstraints(maxHeight: 200),
+      constraints: BoxConstraints(maxHeight: size.width > 750 ? 200 : 450),
       width: min(size.width * 0.9, 1280),
       color: primaryColor,
       child: Column(
@@ -26,28 +27,59 @@ class ItemArticle extends StatelessWidget {
         children: [
           const AtomDivider(),
           const SizedBox(height: 15),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              PersonalizedTitleArticle(
-                  title: '${articleModel.orderLevel} - ${articleModel.title}',
-                  seeMore: () => _onpress(context)),
-              PersonalizedBodyArticle(description: articleModel.description),
-              const SizedBox(width: 20),
-              _personalizedImageArticle(),
-            ],
+          Expanded(
+            child:
+                size.width > 750 ? _ifIsWindows(context) : _ifIsMobile(context),
           ),
         ],
       ),
     );
   }
 
-  Expanded _personalizedImageArticle() {
+  InkWell _ifIsWindows(BuildContext context) {
+    return InkWell(
+      onTap: () => _onpress(context),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          PersonalizedTitleArticle(
+              title: '${articleModel.orderLevel} - ${articleModel.title}',
+              seeMore: () => _onpress(context)),
+          PersonalizedBodyArticle(description: articleModel.description),
+          const SizedBox(width: 20),
+          _personalizedImageArticle(),
+        ],
+      ),
+    );
+  }
+
+  InkWell _ifIsMobile(BuildContext context) {
+    return InkWell(
+      onTap: () => _onpress(context),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _personalizedImageArticle(flex: 4, width: double.infinity),
+          SingleChildScrollView(
+            child: PersonalizedTitleArticle(
+              title: '${articleModel.orderLevel} - ${articleModel.title}',
+              seeMore: () => _onpress(context),
+              maxHeight: 250,
+            ),
+          ),
+          // PersonalizedBodyArticle(description: articleModel.description),
+        ],
+      ),
+    );
+  }
+
+  Expanded _personalizedImageArticle({flex = 1, width = 160}) {
     return Expanded(
-      flex: 1,
+      flex: flex,
       child: Hero(
         tag: '${articleModel.idArticulo}',
-        child: PersonalizedImageArticle(urlImage: articleModel.imageURL),
+        child: PersonalizedImageArticle(
+            urlImage: articleModel.imageURL, width: width),
       ),
     );
   }

@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _articleBloc = BlocProvider.of<ArticleBloc>(context, listen: true);
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       // floatingActionButton: FloatingActionButton(onPressed: () {}),
       body: Column(
@@ -23,7 +24,8 @@ class HomePage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               color: Colors.black,
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding:
+                  EdgeInsets.symmetric(horizontal: size.width > 750 ? 50 : 10),
               child: BlocBuilder<ArticleBloc, ArticleState>(
                 builder: (_, state) {
                   if (state.listArticle != null) {

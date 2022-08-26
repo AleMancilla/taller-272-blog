@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 class PersonalizedImageArticle extends StatelessWidget {
   const PersonalizedImageArticle(
-      {Key? key, required this.urlImage, this.height = 160})
+      {Key? key, required this.urlImage, this.height = 160, this.width = 160})
       : super(key: key);
   final String urlImage;
   final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class PersonalizedImageArticle extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       child: SizedBox(
         height: height,
+        width: width,
         // constraints: const BoxConstraints(maxHeight: 160),
         child: Image.network(
           urlImage,

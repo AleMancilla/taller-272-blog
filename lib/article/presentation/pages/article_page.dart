@@ -17,7 +17,9 @@ class ArticlePage extends StatelessWidget {
         color: Colors.black,
         height: double.infinity,
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: max(50, size.width * 0.15)),
+        padding: size.width > 750
+            ? EdgeInsets.symmetric(horizontal: max(50, size.width * 0.15))
+            : const EdgeInsets.symmetric(horizontal: 2),
         child: ArticlePageTemplate(article: article),
       ),
     );
