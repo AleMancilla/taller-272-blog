@@ -19,7 +19,7 @@ class ItemArticle extends StatelessWidget {
     print('========> size $size');
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
-      constraints: BoxConstraints(maxHeight: size.width > 750 ? 200 : 450),
+      constraints: BoxConstraints(maxHeight: size.width > 750 ? 200 : 500),
       width: min(size.width * 0.9, 1280),
       color: primaryColor,
       child: Column(
@@ -59,13 +59,11 @@ class ItemArticle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _personalizedImageArticle(flex: 4, width: double.infinity),
-          SingleChildScrollView(
-            child: PersonalizedTitleArticle(
-              title: '${articleModel.orderLevel} - ${articleModel.title}',
-              seeMore: () => _onpress(context),
-              maxHeight: 250,
-            ),
+          _personalizedImageArticle(flex: 3, width: double.infinity),
+          PersonalizedTitleArticle(
+            title: '${articleModel.orderLevel} - ${articleModel.title}',
+            seeMore: () => _onpress(context),
+            maxHeight: 250,
           ),
           // PersonalizedBodyArticle(description: articleModel.description),
         ],
